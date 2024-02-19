@@ -64,4 +64,8 @@ def modify_user(user_id):
 
 # Run the Flask application
 if __name__ == '__main__':
-    app.run(host='192.168.138.156', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
+# Run the Flask application
+#if __name__ == '__main__':
+#    app.run(debug=True)
