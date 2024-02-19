@@ -1,7 +1,9 @@
 name: Deploy to EC2
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main  # Change this to the branch you want to deploy from
 
 jobs:
   deploy:
@@ -10,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to EC2
         run: |
